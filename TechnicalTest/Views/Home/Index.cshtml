@@ -1,0 +1,158 @@
+﻿@model IEnumerable<TechnicalTest.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>User List</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "home", FormMethod.Get))
+    {
+
+    <label>Name</label>
+      @*<input id="search" type="text" />*@
+      @Html.TextBox("search")
+    <input type="submit" id="submitId" value="Search" />
+    }
+</p>
+
+<h2>@ViewBag.text</h2>
+<table class="table" style="font-size:11.5px">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+    <tr>
+        <th>
+            @Html.ActionLink("Name", "Index", new { SortOrder=ViewBag.name})
+        </th>
+        <th>
+            @Html.ActionLink("User Name", "Index", new { SortOrder = ViewBag.username })
+        </th>
+        <th>
+            @Html.ActionLink("Email", "Index", new { SortOrder = ViewBag.email })
+        </th>
+        <th  colspan="6">
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.website)
+        </th>
+        <th colspan="3">
+            @Html.DisplayNameFor(model => model.company)
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.suite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.zipcode)
+        </th>
+        <th colspan="2">
+            @Html.DisplayNameFor(model => model.address.geo)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.company.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.company.catchPhrase)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.company.bs)
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.geo.lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address.geo.lng)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.address.street)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.address.suite)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.address.city)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.address.zipcode)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.address.geo.lat)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.address.geo.lng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.website)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.company.name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.company.catchPhrase)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.company.bs)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Show", "Details", new { id=item.id }) 
+            
+        </td>
+    </tr>
+}
+ </table>
+<br/>
+<br/>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

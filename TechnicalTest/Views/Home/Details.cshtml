@@ -1,0 +1,32 @@
+﻿@model TechnicalTest.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+<br/>
+<link href="~/Content/StyleSheet.css" rel="stylesheet" />
+<h2>Business Cart</h2>
+
+<div>
+    @*<h4>User</h4>*@
+    <hr />
+    <div id="topdiv">
+        <p id="detail1"> @Html.DisplayFor(model => model.name)</p>
+        <p id="detail2">@Html.DisplayFor(model => model.company.catchPhrase)</p>
+    </div>
+    <div id="bottomdiv" >
+        <p id="detail3"> @Html.DisplayFor(model => model.phone)|@Html.DisplayFor(model => model.email)</p>
+        <p id="detail4"> @Html.DisplayFor(model => model.address.suite)
+            @Html.DisplayFor(model => model.address.street)
+            @Html.DisplayFor(model => model.address.zipcode)
+            @Html.DisplayFor(model => model.address.zipcode)</p>
+    </div>
+    
+</div>
+<br/>
+<br />
+<br />
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>
